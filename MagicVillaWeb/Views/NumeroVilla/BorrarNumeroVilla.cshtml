@@ -1,0 +1,57 @@
+﻿@model MagicVillaWeb.Models.ViewModel.NumeroVillaDeleteViewModel
+@{
+    ViewData["Title"] = "BorrarNumeroVilla";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Remover Villa</h1>
+
+<form method="post" asp-action="BorrarNumeroVilla">
+    <div class="container border p-3">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <input asp-for="NumeroVilla.VillaNo" hidden />
+        <div class="row">
+            <h2 class="text-info">Remover número de Villa</h2>
+
+        </div>
+
+        <div class="row mt-2">
+            <div class="col-md-6">
+                <label class="form-label">Número de villa</label>
+                <input asp-for="NumeroVilla.VillaNo" disabled class="form-control" />
+                <span asp-validation-for="NumeroVilla.VillaNo" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row mt-2">
+            <div class="col-md-6">
+                <label class="form-label"></label>
+                <select asp-for="NumeroVilla.VillaId" disabled class="form-select" asp-items="@Model.villaList">
+                    <option value="">---Seleccione una villa</option>
+                </select>
+                <span asp-validation-for="NumeroVilla.VillaId" class="text-danger"></span>
+            </div>
+
+        </div>
+
+
+        <div class="row mt-2">
+            <div class="col-md-6">
+                <label class="form-label">Detalle especial</label>
+                <textarea disabled asp-for="NumeroVilla.DetalleEspecial" class="form-control"></textarea>
+                <span asp-validation-for="NumeroVilla.DetalleEspecial" class="text-danger"></span>
+
+            </div>
+
+        </div>
+
+        <div class="d-grid gap-2 d-md-block mt-2">
+            <button type="submit" class="btn btn-danger">Borrar</button>
+
+            <a asp-controller="NumeroVilla" asp-action="IndexNumeroVilla" class="btn btn-sucesss">Regresar</a>
+
+        </div>
+    </div>
+
+</form>
+
